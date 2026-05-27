@@ -155,11 +155,14 @@ def fetch_yfinance_history(symbols: pd.DataFrame, days: int = 300, batch_size: i
                 continue
             if hist.empty:
                 continue
+            if isinstance(hist.columns, pd.MultiIndex):
+                hist.columns = hist.columns.get_level_values(0)
             hist = hist.reset_index().tail(days)
+            date_col = "Date" if "Date" in hist.columns else "Datetime" if "Datetime" in hist.columns else hist.columns[0]
             for _, item in hist.iterrows():
                 records.append(
                     {
-                        "date": pd.to_datetime(item["Date"]).normalize(),
+                        "date": pd.to_datetime(item[date_col]).normalize(),
                         "symbol": row["symbol"],
                         "name": row.get("name") or "",
                         "market": row["market"],
