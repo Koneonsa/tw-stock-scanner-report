@@ -1,6 +1,6 @@
 # GitHub 自動化部署
 
-目標：每天台北時間 20:30 自動抓資料、產生 `latest.html`、部署到 GitHub Pages，並把報告網址推送到 Telegram。
+目標：每天台北時間 20:30 自動抓資料、產生 `getmoneytommrrow.html`、部署到 GitHub Pages，並把報告網址推送到 Telegram。
 
 ## 1. 建立 GitHub Repo
 
@@ -17,7 +17,7 @@
 部署成功後，報告網址會長得像：
 
 ```text
-https://你的帳號.github.io/你的repo/latest.html
+https://你的帳號.github.io/你的repo/getmoneytommrrow.html
 ```
 
 ## 3. 設定 Telegram Secrets

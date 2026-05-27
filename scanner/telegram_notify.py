@@ -8,6 +8,7 @@ from requests import RequestException
 
 from .config import PROJECT_ROOT
 from .db import connect
+from .report import REPORT_FILENAME
 
 
 def _signal_counts() -> str:
@@ -48,7 +49,7 @@ def send_report(report_path: Path | None = None) -> None:
         print("Telegram skipped: TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is not set.")
         return
 
-    report_path = report_path or PROJECT_ROOT / "reports" / "latest.html"
+    report_path = report_path or PROJECT_ROOT / "reports" / REPORT_FILENAME
     report_url = os.getenv("TELEGRAM_REPORT_URL")
     caption = "每日線型掃描報告\n" + _signal_counts()
     if report_url:

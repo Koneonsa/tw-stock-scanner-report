@@ -10,6 +10,9 @@ from .config import PROJECT_ROOT
 from .db import connect, latest_scan
 
 
+REPORT_FILENAME = "getmoneytommrrow.html"
+
+
 def _suffix(market: str) -> str:
     return ".TW" if market == "上市" else ".TWO"
 
@@ -401,7 +404,7 @@ def export_latest_report(output_path: Path | None = None) -> Path:
     con = connect()
     results = latest_scan(con)
     if output_path is None:
-        output_path = PROJECT_ROOT / "reports" / "latest.html"
+        output_path = PROJECT_ROOT / "reports" / REPORT_FILENAME
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(build_report_html(results), encoding="utf-8")
     return output_path

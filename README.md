@@ -5,7 +5,7 @@
 目前公開報告網址：
 
 ```text
-https://koneonsa.github.io/tw-stock-scanner-report/latest.html
+https://koneonsa.github.io/tw-stock-scanner-report/getmoneytommrrow.html
 ```
 
 ## 目前自動化流程
@@ -15,9 +15,9 @@ GitHub Actions 會在每天台北時間 20:30 自動執行：
 1. 抓 TWSE / TPEx OpenAPI 最新日資料。
 2. 用 yfinance 回補最近 300 個交易日 OHLCV。
 3. 存入 DuckDB 並重新掃描全市場。
-4. 產生 `reports/latest.html`。
+4. 產生 `reports/getmoneytommrrow.html`。
 5. 部署到 GitHub Pages。
-6. 排程執行時把 `latest.html` 網址推送到 Telegram。
+6. 排程執行時把 `getmoneytommrrow.html` 網址推送到 Telegram。
 
 手動 push 到 `main` 也會重新部署報告，但不會推 Telegram。手動執行 workflow 時可選擇是否推 Telegram。
 
@@ -179,7 +179,7 @@ scanner/telegram_bot.py        Telegram 個股查詢 bot
 scanner/db.py                  DuckDB schema 與 upsert
 scanner/indicators.py          MA / RSI 指標
 data/market.duckdb             本機資料庫，不會推上 GitHub
-reports/latest.html            本機輸出報告，不會推上 GitHub
+reports/getmoneytommrrow.html            本機輸出報告，不會推上 GitHub
 ```
 
 ## 部署文件

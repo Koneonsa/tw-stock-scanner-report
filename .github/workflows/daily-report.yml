@@ -67,7 +67,7 @@ jobs:
                   logs.append(f"===== {name} =====\n" + path.read_text(errors="replace"))
           body = escape("\n\n".join(logs) or "No logs captured.")
           Path("reports").mkdir(exist_ok=True)
-          Path("reports/latest.html").write_text(
+          Path("reports/getmoneytommrrow.html").write_text(
               "<!doctype html><meta charset='utf-8'><title>Report build failed</title>"
               "<body style='font-family:-apple-system,BlinkMacSystemFont,sans-serif;padding:24px'>"
               "<h1>Report build failed</h1><p>GitHub Actions 產生報告時失敗，以下是公開除錯內容。</p>"
@@ -81,8 +81,8 @@ jobs:
       - name: Prepare GitHub Pages site
         run: |
           mkdir -p public
-          cp reports/latest.html public/latest.html
-          cp reports/latest.html public/index.html
+          cp reports/getmoneytommrrow.html public/getmoneytommrrow.html
+          cp reports/getmoneytommrrow.html public/index.html
           touch public/.nojekyll
 
       - name: Configure Pages
@@ -102,5 +102,5 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          TELEGRAM_REPORT_URL: ${{ steps.deployment.outputs.page_url }}latest.html
+          TELEGRAM_REPORT_URL: ${{ steps.deployment.outputs.page_url }}getmoneytommrrow.html
         run: python -m scanner.cli notify-telegram
