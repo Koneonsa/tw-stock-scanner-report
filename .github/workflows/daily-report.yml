@@ -1,6 +1,8 @@
 name: Daily Taiwan Stock Report
 
 on:
+  push:
+    branches: ["main"]
   schedule:
     # 20:30 Asia/Taipei = 12:30 UTC.
     - cron: "30 12 * * *"
