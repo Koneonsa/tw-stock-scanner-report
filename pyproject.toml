@@ -1,0 +1,18 @@
+[project]
+name = "early-bottoming-pullback-scanner"
+version = "0.1.0"
+description = "Taiwan market OHLCV dashboard for Early Bottoming Pullback scanning."
+requires-python = ">=3.9"
+dependencies = [
+  "pandas>=2.2",
+  "numpy>=1.26",
+  "plotly>=5.22",
+  "streamlit>=1.35",
+  "duckdb>=1.0",
+  "requests>=2.32",
+  "yfinance>=0.2.40",
+  "tqdm>=4.66",
+]
+
+[tool.ruff]
+line-length = 100

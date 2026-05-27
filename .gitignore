@@ -1,0 +1,16 @@
+.venv/
+.pycache/
+__pycache__/
+*.pyc
+.DS_Store
+data/*.duckdb
+data/*.duckdb.wal
+data/*.duckdb.tmp
+data/*.txt
+data/*.pid
+logs/
+reports/*.html
+scripts/com.koneonsa.stockscanner.telegrambot.plist
+scripts/run_telegram_query_bot.sh
+.streamlit/secrets.toml
+.env

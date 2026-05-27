@@ -1,0 +1,8 @@
+pandas>=2.2
+numpy>=1.26
+plotly>=5.22
+streamlit>=1.35
+duckdb>=1.0
+requests>=2.32
+yfinance>=0.2.40
+tqdm>=4.66
