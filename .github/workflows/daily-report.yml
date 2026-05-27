@@ -5,6 +5,12 @@ on:
     # 20:30 Asia/Taipei = 12:30 UTC.
     - cron: "30 12 * * *"
   workflow_dispatch:
+    inputs:
+      notify_telegram:
+        description: "Send Telegram notification after deploy"
+        required: true
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -62,6 +68,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Notify Telegram with report URL
+        if: github.event_name == 'schedule' || inputs.notify_telegram == true
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
